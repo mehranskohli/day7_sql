@@ -1,0 +1,93 @@
+CREATE DATABASE lab_mysql; 
+
+mysql> CREATE DATABASE lab_mysql;
+Query OK, 1 row affected (0,08 sec)
+
+mysql> CREATE TABLE car (ID VARCHAR(50), VIN VARCHAR(50), manufacturer VARCHAR(30), model VARCHAR(40), year VARCHAR(10), color VARCHAR(20));
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> CREATE TABLE customer (ID VARCHAR(1000), CUSTOMER_ID VARCHAR(1000), name VARCHAR(60), email VARCHAR(100), city VARCHAR(70), country VARCHAR(70));
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> CREATE TABLE salesperson (ID VARCHAR(1000), staff_ID VARCHAR(1000), name VARCHAR(60), city VARCHAR(60));
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> CREATE TABLE invoice (ID VARCHAR(1000), invoice_nr VARCHAR(1000), date DATE, car VARCHAR(10), customer VARCHAR(10), sales_person VARCHAR(30));
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_lab_mysql |
++---------------------+
+| car                 |
+| customer            |
+| invoice             |
+| salesperson         |
++---------------------+
+4 rows in set (0,00 sec)
+
+mysql> INSERT INTO car VALUE ('0', '3K096I98581DHSNUP', 'Volkswagen', 'Tiguan', '2019', 'Blue'), ('1', 'ZM8G7BEUQZ97IH46V', 'Peugeot', 'Rifter', '2019', 'Red'), ('2', 'RKXVNNIHLVVZOUB4M', 'Ford', 'Fusion', '2018', 'White'),('3', 'HKNDGS7CU31E9Z7J', 'Toyota', 'RAV4', '2018', 'Silver'),('4', 'DAM41UDN3CHU2WVF6', 'Volvo', 'V60', '2019', 'Gray');
+Query OK, 5 rows affected (0,02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM car;
++------+-------------------+--------------+--------+------+--------+
+| ID   | VIN               | manufacturer | model  | year | color  |
++------+-------------------+--------------+--------+------+--------+
+| 0    | 3K096I98581DHSNUP | Volkswagen   | Tiguan | 2019 | Blue   |
+| 1    | ZM8G7BEUQZ97IH46V | Peugeot      | Rifter | 2019 | Red    |
+| 2    | RKXVNNIHLVVZOUB4M | Ford         | Fusion | 2018 | White  |
+| 3    | HKNDGS7CU31E9Z7J  | Toyota       | RAV4   | 2018 | Silver |
+| 4    | DAM41UDN3CHU2WVF6 | Volvo        | V60    | 2019 | Gray   |
++------+-------------------+--------------+--------+------+--------+
+5 rows in set (0,00 sec)
+
+mysql> INSERT INTO customer VALUE ('0', '10001', 'Pablo Picasso', '-' ,'Madrid','Spain'), ('1', '10231', 'Pablo Escobar', '-' ,'Florida','United States'), ('2', '10200', 'Noortje taal', '-' ,'Amsterdam','Netherlands'), ('2', '10201', 'Mih', '-' ,'Amsterdam','Netherlands');
+Query OK, 4 rows affected (0,01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM customer;
++------+-------------+---------------+-------+-----------+---------------+
+| ID   | CUSTOMER_ID | name          | email | city      | country       |
++------+-------------+---------------+-------+-----------+---------------+
+| 0    | 10001       | Pablo Picasso | -     | Madrid    | Spain         |
+| 1    | 10231       | Pablo Escobar | -     | Florida   | United States |
+| 2    | 10200       | Noortje taal  | -     | Amsterdam | Netherlands   |
+| 2    | 10201       | Mih           | -     | Amsterdam | Netherlands   |
++------+-------------+---------------+-------+-----------+---------------+
+4 rows in set (0,00 sec)
+
+mysql> INSERT INTO salesperson VALUE ('0', '00001', 'Petey Cruiser', 'Madrid');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO salesperson VALUE ('2', '00003', 'Paul Molive', 'Berlin'), ('1', '00002', 'Anna Sthesia', 'Barcelona'), ('3', '00004', 'Gail Forcewind', 'Paris'), ('4', '00005', 'Paige Turner', 'Mimia');
+Query OK, 4 rows affected (0,00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM salesperson;
++------+----------+----------------+-----------+
+| ID   | staff_ID | name           | city      |
++------+----------+----------------+-----------+
+| 0    | 00001    | Petey Cruiser  | Madrid    |
+| 2    | 00003    | Paul Molive    | Berlin    |
+| 1    | 00002    | Anna Sthesia   | Barcelona |
+| 3    | 00004    | Gail Forcewind | Paris     |
+| 4    | 00005    | Paige Turner   | Mimia     |
++------+----------+----------------+-----------+
+5 rows in set (0,00 sec)
+
+mysql> INSERT INTO invoice VALUE ('0', '852399038', '2018-08-22', '0', '1', '3'), ('1', '731166526', '2018-12-31', '3', '0', '5'), ('2', '271135104', '2019-01-22',  '2', '2', '7');
+Query OK, 3 rows affected (0,00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM invoice;
++------+------------+------------+------+----------+--------------+
+| ID   | invoice_nr | date       | car  | customer | sales_person |
++------+------------+------------+------+----------+--------------+
+| 0    | 852399038  | 2018-08-22 | 0    | 1        | 3            |
+| 1    | 731166526  | 2018-12-31 | 3    | 0        | 5            |
+| 2    | 271135104  | 2019-01-22 | 2    | 2        | 7            |
++------+------------+------------+------+----------+--------------+
+3 rows in set (0,00 sec)
+
+''' DONE ''' 
