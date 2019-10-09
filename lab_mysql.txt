@@ -3,6 +3,10 @@ CREATE DATABASE lab_mysql;
 mysql> CREATE DATABASE lab_mysql;
 Query OK, 1 row affected (0,08 sec)
 
+'''
+L.S. Looks good!
+'''
+
 mysql> CREATE TABLE car (ID VARCHAR(50), VIN VARCHAR(50), manufacturer VARCHAR(30), model VARCHAR(40), year VARCHAR(10), color VARCHAR(20));
 Query OK, 0 rows affected (0,02 sec)
 
